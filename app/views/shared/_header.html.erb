@@ -16,7 +16,11 @@
         <li><%= link_to "About", about_path %></li>
         <li><%= link_to "Music", "#" %></li>
         <li><%= link_to "Videos", "#" %></li>
-        <li><%= link_to "Sign in", "#" %></li>
+        <% if !signed_in? %>
+          <li><%= link_to "Sign in", signin_path %></li>
+        <% else %>
+          <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
+        <% end %>
       </ul>
     </div>
   </div>
