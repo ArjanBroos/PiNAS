@@ -9,4 +9,17 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Pinas::Application.config.secret_key_base = '13ae8bd5b61a40d127fecb7e7930f783394b305547e82cb36c3c3a7db42ac94dcf3dfa4545ca2006e37d820f2e85d53a6424f9f44fbb1be5854e42aa9fafdb16'
+require 'securerandom'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    File.read(token_file).chomp
+  else
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
+Pinas::Application.config.secret_key_base = secure_token
