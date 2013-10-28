@@ -17,9 +17,17 @@
         <li><a href="#"><span class="glyphicon glyphicon-music"></span></a></li>
         <li><a href="#"><span class="glyphicon glyphicon-film"></span></a></li>
         <% unless signed_in? %>
-          <li><%= link_to "Sign in", signin_path %></li>
+          <li>
+            <a href="<%= signin_path %>">
+              <span class="glyphicon glyphicon-user"></span> - Sign in
+            </a>
+          </li>
         <% else %>
-          <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
+          <li>
+            <a href="<%= signout_path %>" data-method="delete" rel="nofollow">
+              <span class="glyphicon glyphicon-user"></span> - Sign out
+            </a>
+          </li>
         <% end %>
       </ul>
     </div>
