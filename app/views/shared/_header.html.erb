@@ -12,11 +12,11 @@
 
     <div class="collapse navbar-collapse navbar-ex1-collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "About", about_path %></li>
-        <li><%= link_to "Music", "#" %></li>
-        <li><%= link_to "Videos", "#" %></li>
-        <% if !signed_in? %>
+        <li><a href="<%= root_path %>"><span class="glyphicon glyphicon-home"></span></a></li>
+        <li><a href="<%= about_path %>"><span class="glyphicon glyphicon-info-sign"></span></a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-music"></span></a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-film"></span></a></li>
+        <% unless signed_in? %>
           <li><%= link_to "Sign in", signin_path %></li>
         <% else %>
           <li><%= link_to "Sign out", signout_path, method: "delete" %></li>

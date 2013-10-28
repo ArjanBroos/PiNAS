@@ -1,4 +1,6 @@
 <h1>Home</h1>
-<p>
-  Welcome to the home page!
-</p>
+<p>Welcome to PiNAS, Arjan's private NAS web application hosted on a Raspberry Pi!</p>
+<% unless signed_in? %>
+  <%= link_to "Sign up", signup_path, class: "btn btn-lg btn-primary" %>
+  <%= link_to "Sign in", signin_path, class: "btn btn-lg btn-primary" %>
+<% end %>
