@@ -1,5 +1,12 @@
 require 'spec_helper'
 
-describe "static_pages/home.html.erb" do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe "Home page" do
+  before { visit about_path }
+
+  subject { page }
+
+  describe "should have the right content" do
+    it { should have_content("Home") }
+  end
+
 end
