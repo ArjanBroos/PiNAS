@@ -1,8 +1,15 @@
-<div class="jumbotron center">
-  <h1>Home</h1>
-  <p>Welcome to PiNAS, Arjan's private NAS web application hosted on a Raspberry Pi!</p>
-  <% unless signed_in? %>
-    <%= link_to "Sign up", signup_path, class: "btn btn-lg btn-primary" %>
+<% unless signed_in? %>
+  <div class="jumbotron center">
+    <h1>Home</h1>
+    <p>Welcome to PiNAS, Arjan's private NAS web application hosted on a Raspberry Pi!</p>
     <%= link_to "Sign in", signin_path, class: "btn btn-lg btn-primary" %>
-  <% end %>
-</div>
+    <%= link_to "Sign up", signup_path, class: "btn btn-lg btn-success" %>
+  </div>
+<% else %>
+  <h1>Home <small>- <%= current_user.name %></small></h1>
+  <p>
+    Welcome to PiNAS, Arjan's private NAS web application hosted on a Raspberry Pi!
+    From this site, you can stream music and/or videos onto any modern device.
+    Use the navigation bar at the top of the page to navigate the site.
+  </p>
+<% end %>
